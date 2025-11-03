@@ -1,11 +1,11 @@
 {
-  "name": "groq-compound-mcp-server",
-  "version": "0.1.7",
-  "description": "MCP server for interacting with Groq models",
+  "name": "mcp-radiobh-server",
+  "version": "1.0.0",
+  "description": "MCP server for Radio BH podcast assistant with deep knowledge of shows, episodes, and topics since 1997. Expert in Laravel, PHP, TypeScript, React, Node.js and more.",
   "main": "build/index.js",
   "type": "module",
   "bin": {
-    "groq-compound-mcp-server": "build/index.js"
+    "mcp-radiobh-server": "build/index.js"
   },
   "scripts": {
     "build": "next build && tsc -p tsconfig.stdio.json && chmod 755 build/index.js",
@@ -16,19 +16,25 @@
   },
   "keywords": [
     "mcp",
-    "groq",
-    "compound"
+    "radio-bh",
+    "podcast",
+    "coding-assistant",
+    "laravel",
+    "php",
+    "typescript",
+    "react",
+    "nodejs"
   ],
-  "author": "Rick Lamers",
+  "author": "Radio BH Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/groq/compound-mcp-server.git"
+    "url": "git+https://github.com/aldoyh/mcp-radiobh-server.git"
   },
   "bugs": {
-    "url": "https://github.com/groq/compound-mcp-server/issues"
+    "url": "https://github.com/aldoyh/mcp-radiobh-server/issues"
   },
-  "homepage": "https://github.com/groq/compound-mcp-server#readme",
+  "homepage": "https://github.com/aldoyh/mcp-radiobh-server#readme",
   "files": [
     "build"
   ],
