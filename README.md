@@ -13,13 +13,6 @@ A Model Context Protocol (MCP) server that provides deep knowledge of Radio BH's
 *   **`search_radiobh_topics`** - Search for topics in the historic archive since 1997
 *   **`ask_coding_question`** - Ask coding questions with deep knowledge from Radio BH's expertise
 
-### Resources
-
-*   **`radiobh://shows`** - Browse all Radio BH podcast shows
-*   **`radiobh://categories`** - View podcast categories
-*   **`radiobh://episodes`** - Access episode archive
-*   **`radiobh://topics`** - Browse historic topics covered since 1997
-
 ### General AI Tools (via Groq)
 
 *   **`ask_with_realtime_information`** - Ask questions requiring real-time information

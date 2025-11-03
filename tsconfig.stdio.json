@@ -2,9 +2,10 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "ES2022",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "noEmit": false,
-    "plugins": []
+    "plugins": [],
+    "allowImportingTsExtensions": false
   },
   "include": [
     "src/server.ts",

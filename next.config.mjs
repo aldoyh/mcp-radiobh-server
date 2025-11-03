@@ -4,6 +4,13 @@ const nextConfig = {
   // For example, to enable experimental features or set up rewrites/redirects.
   // We might need to add specific configurations later if required for MCP.
   reactStrictMode: true,
+  webpack: (config) => {
+    // Allow .js extensions for TypeScript files
+    config.resolve.extensionAlias = {
+      '.js': ['.js', '.ts'],
+    };
+    return config;
+  },
 };
 
 export default nextConfig; 

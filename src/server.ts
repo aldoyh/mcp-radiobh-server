@@ -16,7 +16,7 @@ import {
   getCategoryById,
   type PodcastEpisode,
   type PodcastShow
-} from "./radiobh-knowledge";
+} from "./radiobh-knowledge.js";
 
 const ModelEnum = z.enum(["compound-beta", "compound-beta-mini"]);
 const ModeEnum = z.enum(["minimal", "verbose"]);
