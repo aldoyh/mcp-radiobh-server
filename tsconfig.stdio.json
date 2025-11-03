@@ -1,15 +1,16 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ES2022",
+    "moduleResolution": "node",
     "noEmit": false,
-    "plugins": []
+    "plugins": [],
+    "allowImportingTsExtensions": false
   },
   "include": [
     "src/server.ts",
-    "src/index.ts"
-    // Add any other specific files for the stdio server here if they arise
+    "src/index.ts",
+    "src/radiobh-knowledge.ts"
   ],
   "exclude": [
     "node_modules",

@@ -1,9 +1,26 @@
 import { createMcpHandler } from '@vercel/mcp-adapter';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { realtimeTool, replTool } from '@/server';
+import { 
+  searchEpisodesTool,
+  getShowInfoTool,
+  listShowsTool,
+  getEpisodeInfoTool,
+  searchTopicsTool,
+  askCodingQuestionTool,
+  realtimeTool,
+  replTool
+} from '@/server';
 
 const handler = createMcpHandler((adapterServer: McpServer) => {
-    // Register tools from your existing server.ts on the server instance provided by the adapter
+    // Register Radio BH tools
+    adapterServer.tool(searchEpisodesTool.name, searchEpisodesTool.description, searchEpisodesTool.schema, searchEpisodesTool.handler);
+    adapterServer.tool(getShowInfoTool.name, getShowInfoTool.description, getShowInfoTool.schema, getShowInfoTool.handler);
+    adapterServer.tool(listShowsTool.name, listShowsTool.description, listShowsTool.schema, listShowsTool.handler);
+    adapterServer.tool(getEpisodeInfoTool.name, getEpisodeInfoTool.description, getEpisodeInfoTool.schema, getEpisodeInfoTool.handler);
+    adapterServer.tool(searchTopicsTool.name, searchTopicsTool.description, searchTopicsTool.schema, searchTopicsTool.handler);
+    adapterServer.tool(askCodingQuestionTool.name, askCodingQuestionTool.description, askCodingQuestionTool.schema, askCodingQuestionTool.handler);
+    
+    // Register original Groq tools for backward compatibility
     adapterServer.tool(realtimeTool.name, realtimeTool.description, realtimeTool.schema, realtimeTool.handler);
     adapterServer.tool(replTool.name, replTool.description, replTool.schema, replTool.handler);
   }, undefined, {
