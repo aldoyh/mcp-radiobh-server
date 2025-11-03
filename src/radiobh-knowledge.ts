@@ -287,12 +287,7 @@ export function getEpisodesByShow(showId: string): PodcastEpisode[] {
 }
 
 export function searchEpisodesByTopic(topic: string): PodcastEpisode[] {
-  const searchTerm = topic.toLowerCase();
-  return episodes.filter(episode => 
-    episode.topics.some(t => t.toLowerCase().includes(searchTerm)) ||
-    episode.title.toLowerCase().includes(searchTerm) ||
-    episode.description.toLowerCase().includes(searchTerm)
-  );
+  return searchEpisodesByKeyword(topic);
 }
 
 export function searchEpisodesByKeyword(keyword: string): PodcastEpisode[] {

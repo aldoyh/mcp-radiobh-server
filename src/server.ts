@@ -133,10 +133,15 @@ async function executeGroqQuery(args: ToolArgs) {
 
 // --- Radio BH Tool Handlers ---
 async function handleSearchEpisodes(args: z.infer<typeof searchEpisodesArgsSchema>) {
-  let results = searchEpisodesByKeyword(args.query);
-  
+  // If showId is provided, filter by show first to reduce search space
+  let results: PodcastEpisode[];
   if (args.showId) {
-    results = results.filter((ep: PodcastEpisode) => ep.showId === args.showId);
+    const showEpisodes = getEpisodesByShow(args.showId);
+    results = searchEpisodesByKeyword(args.query).filter((ep: PodcastEpisode) => 
+      showEpisodes.some(showEp => showEp.id === ep.id)
+    );
+  } else {
+    results = searchEpisodesByKeyword(args.query);
   }
   
   const formattedResults = results.map((ep: PodcastEpisode) => {
@@ -314,10 +319,6 @@ Key areas of expertise from the shows:
 - Startup and business strategies (Startup Stories)
 
 When answering, draw upon this rich knowledge base and provide practical, expert-level guidance.`;
-
-  const fullQuestion = args.context 
-    ? `${systemContext}\n\nContext: ${args.context}\n\nQuestion: ${args.question}`
-    : `${systemContext}\n\nQuestion: ${args.question}`;
   
   try {
     const chatCompletion = await groq.chat.completions.create({
